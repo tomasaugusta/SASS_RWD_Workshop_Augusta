@@ -1,1 +1,151 @@
 // styles for the header element, use variables defined earlier
+
+*[class^="col-"] {
+    width: 100%;
+}
+
+@media screen and (min-width: $global-max-width) {
+    .row {
+        display: flex;
+        gap: 0.5em;
+    }
+
+    @for $i from 1 through $columns {
+        .col-#{$i} {
+            width: $base-column-width * $i;
+        }
+    }
+}
+
+.row.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 0 2rem;
+}
+
+.logo__big {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.logo {
+    text-decoration: none;
+    font-family: $font-headings;
+    font-size: 2rem;
+    font-weight: 300;
+    color: $color-primary;
+    padding: 1.0625rem 0;
+}
+
+.navigation {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    position: relative;
+
+    label {
+        display: block;
+        cursor: pointer;
+        font-size: 1.5rem;
+
+        &:hover {
+            color: $color-primary;
+        }
+    }
+
+    .main-nav {
+        display: none;
+        position: absolute;
+        top: 120%;
+        right: 0;
+        background-color: $color-white;
+        padding: 0 1rem;
+        list-style-type: none;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    }
+
+    .nav-item {
+        padding: 0.5rem 0;
+        text-align: center;
+
+        &:first-child {
+            padding-top: 1rem;
+        }
+
+        &:last-child {
+            padding-bottom: 1rem;
+        }
+    }
+
+    .nav-link {
+        text-decoration: none;
+        text-transform: uppercase;
+        font-family: $font-texts;
+        font-size: 0.6875em;
+        font-weight: 700;
+        color: $color-grey;
+
+        &:hover {
+            color: $color-primary;
+        }
+    }
+    
+    input[type="checkbox"] {
+        display: none;
+    }
+
+    input[type="checkbox"]:checked + label + ul {
+        display: block;
+    }
+
+    @media screen and (min-width: $global-max-width) {
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+
+        input[type="checkbox"]:checked + label + ul {
+            display: flex;
+        }
+
+        input[type="checkbox"],
+        label {
+            display: none;
+        }
+
+        .main-nav {
+            display: flex;
+            position: static;
+            box-shadow: none;
+        }
+
+        .nav-item {
+            padding: 0 1.625em;
+            text-align: none;
+            list-style-type: none;
+
+            &:first-child {
+                padding-left: 0;
+                padding-top: 0;
+            }
+        
+            &:last-child {
+                padding-right: 0;
+                padding-bottom: 0;
+            }
+        }
+
+        .nav-link {
+            padding: 1.75em 1.125em 1.375em;
+            border-bottom: 4px solid transparent;
+            white-space: nowrap;
+
+            &:hover {
+                color: $color-black;
+                border-color: $color-primary;
+            }
+        }
+    }
+}

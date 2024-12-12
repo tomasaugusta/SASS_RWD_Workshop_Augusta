@@ -1,1 +1,8 @@
-// variables that store font size and width value
+// variables - font size and width value
+
+@use 'sass:math';
+
+$global-max-width: 64em;
+
+$columns: 12;
+$base-column-width: math.div(100%, 12);

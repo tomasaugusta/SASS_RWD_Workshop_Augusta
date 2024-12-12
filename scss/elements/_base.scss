@@ -1,1 +1,13 @@
 // styles for the entire page
+
+.container {
+    max-width: $global-max-width;
+    margin: 0 auto;
+    padding: 0 1rem;
+
+    @media screen and (max-width: $global-max-width) {
+        width: 100%;
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+}

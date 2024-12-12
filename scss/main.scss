@@ -1,11 +1,11 @@
 // only imports of files created earlier
 
-@import "generic/reset";
-
 @import "settings/all";
 @import "settings/colors";
 @import "settings/fonts";
 @import "settings/icons";
+
+@import "generic/reset";
 
 @import "elements/base";
 @import "elements/header";
